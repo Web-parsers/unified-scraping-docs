@@ -1,0 +1,915 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../3_impersonated_request/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Impersonated Request - Unified Scraping</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#impersonated-request" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Unified Scraping" class="md-header__button md-logo" aria-label="Unified Scraping" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unified Scraping
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Impersonated Request
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Unified Scraping" class="md-nav__button md-logo" aria-label="Unified Scraping" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Unified Scraping
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_toolbox_1_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toolbox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_toolbox_2_cache%20copy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Toolbox Cache / Utils / Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_impersonated_request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impersonate Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Impersonated Request
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impersonated Request
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-checkers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request checkers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request checkers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actions-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions &amp; priority
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern matching
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-control-subclassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced control: subclassing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-impersonation-session-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser impersonation &amp; session pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      API reference (high-level)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-toolbox-proxyjar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Toolbox &amp; ProxyJar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-timeouts-proxy-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on timeouts &amp; proxy switching
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudocode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-checkers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request checkers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request checkers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actions-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions &amp; priority
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern matching
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-control-subclassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced control: subclassing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-impersonation-session-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser impersonation &amp; session pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      API reference (high-level)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-toolbox-proxyjar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Toolbox &amp; ProxyJar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-timeouts-proxy-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on timeouts &amp; proxy switching
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="impersonated-request">Impersonated Request</h1>
+<p>Utilities for making HTTP requests with <strong>browser impersonation</strong>, <strong>proxy rotation</strong>, and <strong>fine-grained retry control</strong>. Built on <code>curl_cffi.AsyncSession</code>.</p>
+<hr />
+<ul>
+<li>Retries are split into <strong>per-URL</strong> and <strong>per-proxy</strong> budgets.</li>
+<li>On each URL attempt, a <strong>browser type</strong> is chosen (from <code>BROWSER_TYPES</code>).</li>
+<li>If proxies are enabled, a proxy is drawn from your <strong>ProxyJar</strong> strategy.</li>
+<li><strong>Checkers</strong> (response &amp; error) decide what to do next: continue, retry, change proxy, or drop.</li>
+</ul>
+<hr />
+<h2 id="pseudocode">Pseudocode</h2>
+<pre><code class="language-python">from unified_scraping import request
+
+async def request(kwargs):
+    while url_attempts &lt; URL_MAX_RETRIES:
+        bt = random(BROWSER_TYPES)
+        proxy = proxy_jar.get_proxy() if enable_proxy else None
+
+        for proxy_attempt in range(PROXY_MAX_RETRIES):
+            resp_or_exc = session.request(bt, proxy, **kwargs)
+
+            action = run_checkers(resp_or_exc)
+            if action == &quot;continue&quot;:
+                return response
+            if action == &quot;drop&quot;:
+                raise SkippedRequest
+            if action in {&quot;change_proxy&quot;} or timeout_hit:
+                # change proxy; break inner loop
+                break
+            # else: retry with same proxy
+
+    raise TooMuchRetries
+</code></pre>
+<p>You can configure:</p>
+<ul>
+<li><strong>URL retries</strong>: <code>IMPERSONATED_REQUEST_URL_MAX_RETRIES</code></li>
+<li><strong>Proxy retries</strong>: <code>IMPERSONATED_REQUEST_PROXY_MAX_RETRIES</code></li>
+</ul>
+<hr />
+<h2 id="quick-start">Quick start</h2>
+<pre><code class="language-python">import asyncio
+from curl_cffi import Response
+from unified_scraping import request
+
+# Example checkers
+@request.response_checker(on_check=&quot;continue&quot;)
+async def log_url(resp: Response):
+    print(f&quot;Url and Status: {resp.status_code} {resp.url}&quot;)
+
+@request.response_checker(on_check=&quot;continue&quot;)
+async def log_country(resp: Response):
+    print(f&quot;Country: {resp.json()['country']}&quot;)
+
+@request.response_checker(on_check=&quot;change_proxy&quot;)
+async def ensure_ukraine(resp: Response):
+    is_ukraine = resp.json().get(&quot;country&quot;) == &quot;Ukraine&quot;
+    print(f&quot;[is_ukraine]: {is_ukraine}&quot;)
+    return not is_ukraine  # True -&gt; trigger change_proxy
+
+async def main():
+    fixture_jar = FixtureJar()  # returns DE, DE, then UA proxy
+    response = await request(
+        &quot;http://ip-api.com/json/&quot;,
+        method=&quot;GET&quot;,
+        enable_proxy=True,
+        proxy_jar=fixture_jar,
+    )
+    print(response.text)
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())
+</code></pre>
+<p><strong>Expected output:</strong></p>
+<pre><code class="language-text">Url and Status: 200 http://ip-api.com/json/
+Country: Germany
+[is_ukraine]: False
+
+Url and Status: 200 http://ip-api.com/json/
+Country: Germany
+[is_ukraine]: False
+
+Url and Status: 200 http://ip-api.com/json/
+Country: Ukraine
+[is_ukraine]: True
+</code></pre>
+<hr />
+<h2 id="request-checkers">Request checkers</h2>
+<p>Checkers let you <em>program the control flow</em> for any URL (optionally matching by pattern).</p>
+<h3 id="actions-priority">Actions &amp; priority</h3>
+<p>The highest-priority action observed across matching checkers is chosen.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th style="text-align: right;">Priority</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>continue</code></td>
+<td style="text-align: right;">0</td>
+<td>Accept and return the response</td>
+</tr>
+<tr>
+<td><code>retry</code></td>
+<td style="text-align: right;">1</td>
+<td>Retry with the <strong>same proxy</strong></td>
+</tr>
+<tr>
+<td><code>change_proxy</code></td>
+<td style="text-align: right;">2</td>
+<td>Retry but <strong>switch proxy</strong> (or on timeout)</td>
+</tr>
+<tr>
+<td><code>drop</code></td>
+<td style="text-align: right;">3</td>
+<td>Skip this URL entirely (raises <code>SkippedRequest</code>)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Multiple checkers can run; the action with the highest priority wins.</p>
+</blockquote>
+<h3 id="response-checker">Response checker</h3>
+<p>Decorator for inspecting a successful <code>Response</code>.</p>
+<pre><code class="language-python">from curl_cffi import Response
+
+@request.response_checker(pattern=r&quot;https://example\.com/.*&quot;, on_check=&quot;retry&quot;)
+async def must_have_ok(resp: Response) -&gt; bool:
+    data = resp.json()
+    return data.get(&quot;ok&quot;) is False  # True -&gt; trigger retry
+</code></pre>
+<h3 id="error-checker">Error checker</h3>
+<p>Decorator for inspecting exceptions (and optional <code>response</code> if present).</p>
+<pre><code class="language-python">from typing import Optional
+from curl_cffi import Response
+
+@request.error_checker(on_check=&quot;drop&quot;)
+async def drop_on_404(exc: Exception, resp: Optional[Response]) -&gt; bool:
+    return bool(resp and resp.status_code == 404)
+</code></pre>
+<blockquote>
+<p>Both checkers <strong>must be <code>async</code></strong> and return <code>True</code> to trigger their <code>on_check</code> action.</p>
+</blockquote>
+<h3 id="pattern-matching">Pattern matching</h3>
+<ul>
+<li><code>pattern</code> accepts a raw string or precompiled <code>re.Pattern</code>.</li>
+<li>If omitted, the checker applies to <strong>all URLs</strong>.</li>
+<li>Pattern is tested against the <strong>full URL</strong>.</li>
+</ul>
+<hr />
+<h2 id="advanced-control-subclassing">Advanced control: subclassing</h2>
+<p>For multi-domain projects or custom behavior, subclass <code>ImpersonatedRequest</code>:</p>
+<pre><code class="language-python">from unified_scraping import ImpersonatedRequest
+
+class CustomImpersonatedRequest(ImpersonatedRequest):
+    # override defaults, add/register project-specific checkers, etc.
+    ...
+
+custom_request = CustomImpersonatedRequest(
+    url_max_retries=50,
+    proxy_max_retries=5,
+)
+
+resp = await custom_request.get(
+    &quot;https://target.example/&quot;,
+    enable_proxy=True,
+    proxy_jar=my_jar,
+)
+</code></pre>
+<hr />
+<h2 id="browser-impersonation-session-pool">Browser impersonation &amp; session pool</h2>
+<ul>
+<li>A session pool is maintained per <code>BrowserType</code> (<code>curl_cffi.BrowserType</code>).</li>
+<li>A browser type is picked per URL attempt (or you can pass <code>impersonate=...</code> in kwargs).</li>
+<li>Some browser types (e.g., specific Safari/Tor variants) are excluded by default.</li>
+</ul>
+<blockquote>
+<p>You can override the chosen browser type per call using <code>impersonate=&lt;BrowserType&gt;</code>.</p>
+</blockquote>
+<hr />
+<h2 id="api-reference-high-level">API reference (high-level)</h2>
+<pre><code class="language-python">from unified_scraping import request, ImpersonatedRequest
+
+# callable shortcut:
+await request(url, method, enable_proxy=True, proxy_jar=jar, **kwargs)
+
+# explicit:
+await request.request(url, method, enable_proxy=True, proxy_jar=jar, **kwargs)
+
+# convenience verbs:
+await request.get(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.post(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.put(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.patch(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.delete(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.options(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+await request.head(url, enable_proxy=True, proxy_jar=jar, **kwargs)
+</code></pre>
+<p><strong>Parameters</strong>
+- <code>url</code>: str — target URL
+- <code>method</code>: one of <code>HttpMethod</code> (case-insensitive string is fine)
+- <code>enable_proxy</code>: bool — toggle proxy usage (default from env)
+- <code>proxy_jar</code>: <code>ProxyJar</code> — required if <code>enable_proxy=True</code>
+- <code>**kwargs</code>: forwarded to <code>AsyncSession.request</code> (e.g., headers, data, timeout, impersonate, proxies, etc.)</p>
+<p><strong>Exceptions</strong>
+- <code>TooMuchRetries</code> — URL budget exhausted
+- <code>SkippedRequest</code> — checker requested to drop this URL</p>
+<hr />
+<h2 id="environment-variables">Environment variables</h2>
+<pre><code class="language-dotenv">IMPERSONATED_REQUEST_DEFAULT_ENABLE_PROXY=False
+IMPERSONATED_REQUEST_PROXY_MAX_RETRIES=10
+IMPERSONATED_REQUEST_URL_MAX_RETRIES=100
+</code></pre>
+<blockquote>
+<p>You can still override <code>enable_proxy</code>, <code>proxy_jar</code>, and retry counts per call or via subclassing.</p>
+</blockquote>
+<hr />
+<h2 id="integration-with-toolbox-proxyjar">Integration with Toolbox &amp; ProxyJar</h2>
+<ul>
+<li>Pass <code>proxy_jar=tb.jar</code> from <code>async with toolbox():</code> for best results.</li>
+<li>Use <code>RandomProxyJar</code> / <code>RoundRobinProxyJar</code> / <code>ExhaustingProxyJar</code> depending on the target’s defenses.</li>
+<li>Combine with <strong>response/error checkers</strong> to adapt to CAPTCHAs, login walls, or region gating.</li>
+</ul>
+<hr />
+<h2 id="notes-on-timeouts-proxy-switching">Notes on timeouts &amp; proxy switching</h2>
+<ul>
+<li>A <code>Timeout</code> triggers the same behavior as <code>change_proxy</code> (switches proxy).</li>
+<li>When a proxy consistently fails (max retries reached), it’s marked as <strong>blocked</strong> via the jar before switching.</li>
+<li>The original <code>kwargs</code> are preserved in logs to help debugging failed attempts.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
