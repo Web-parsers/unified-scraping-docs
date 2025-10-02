@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../3_impersonated_request/">
+        <link rel="prev" href="../4_headers_manager/">
       
       
-        <link rel="next" href="../5_deploy/">
+        <link rel="next" href="../impersonated_request/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>HeadersManager - Unified Scraping</title>
+        <title>Deploy - Unified Scraping</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#headersmanager" class="md-skip">
+        <a href="#deploy" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HeadersManager
+              Deploy
             
           </span>
         </div>
@@ -279,6 +279,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_headers_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeadersManager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -291,146 +313,7 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    HeadersManager
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    HeadersManager
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#client-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Client API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-mode-simple-get" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default Mode (Simple Get)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semaphore-mode-acquirerelease" class="md-nav__link">
-    <span class="md-ellipsis">
-      Semaphore Mode (Acquire/Release)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#server-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Server Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-headersmanager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding a New HeadersManager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration Parameters
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5_deploy/" class="md-nav__link">
         
   
   
@@ -441,6 +324,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -487,98 +371,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#client-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Client API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Client API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-mode-simple-get" class="md-nav__link">
-    <span class="md-ellipsis">
-      Default Mode (Simple Get)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#semaphore-mode-acquirerelease" class="md-nav__link">
-    <span class="md-ellipsis">
-      Semaphore Mode (Acquire/Release)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#server-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Server Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-headersmanager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adding a New HeadersManager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration Parameters
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -593,150 +385,74 @@
 
 
 
-<h1 id="headersmanager">HeadersManager</h1>
-<p>A smart cookie monitoring system focused on providing fresh cookies, headers, and proxies for web requests.</p>
-<h2 id="overview">Overview</h2>
-<p>HeadersManager consists of two components:</p>
-<ul>
-<li><strong>Server Side</strong>: Provides API and monitoring for automatic data maintenance</li>
-<li><strong>Client Side</strong>: Python async API with configurable behavior via the <code>use_sem</code> parameter</li>
-</ul>
-<h2 id="client-api">Client API</h2>
-<h3 id="default-mode-simple-get">Default Mode (Simple Get)</h3>
-<pre><code class="language-python">from unified_scraping import headers_manager
+<h1 id="deploy">Deploy</h1>
+<p>Using submodules in deploying can be a mess, so here my Dockerfile and pipeline I use for such cases:</p>
+<p><code>Dockerfile</code></p>
+<pre><code class="language-Dockerfile">COPY requirements.txt .
+COPY . .
 
-async with headers_manager(&quot;kaufland.de&quot;) as hm:
-    print(hm.proxy)
-    print(hm.cookies)
-    try:
-        await request(...)
-    except:
-        await hm.mark_failure()
+RUN pip install --no-cache-dir --upgrade pip \
+ &amp;&amp; pip install --no-cache-dir -r unified_scraping/requirements.txt \
+ &amp;&amp; pip install --no-cache-dir -r requirements.txt
 </code></pre>
-<p><strong>How it works:</strong></p>
-<pre><code class="language-python">async headers_manager(...) as hm:
-    # GET /{hm}/get - retrieves available headers/cookies
-    request(hm.headers)
-</code></pre>
-<h3 id="semaphore-mode-acquirerelease">Semaphore Mode (Acquire/Release)</h3>
-<pre><code class="language-python">from unified_scraping import headers_manager
+<p><code>.github/workflows/pipeline.yaml</code></p>
+<pre><code class="language-yaml">name: &lt;name&gt;
 
-async with headers_manager(&quot;kaufland.de&quot;, use_sem=True) as hm:
-    print(hm.proxy)
-    print(hm.cookies)
-    try:
-        await request(...)
-    except:
-        await hm.mark_failure()
+on:
+  push:
+    branches:
+      - main
+
+env:
+  BRANCH: main
+  APP_NAME: &lt;app-name&gt;
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server via SSH
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            set -e
+            trap 'docker logout ghcr.io' EXIT
+            DEPLOY_DIR=&quot;/home/daniil/${{ env.APP_NAME }}-${{ env.BRANCH }}&quot;
+            GHCR_TOKEN=&quot;${{ secrets.GHCR_TOKEN }}&quot;
+            GIT_USER=&quot;token&quot;
+            GIT_CRED=&quot;https://${GIT_USER}:${GHCR_TOKEN}@github.com/&quot;
+
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} --password-stdin
+            if [ -d &quot;$DEPLOY_DIR&quot; ]; then
+              echo &quot;→ Updating existing deployment at $DEPLOY_DIR&quot;
+              git -C &quot;$DEPLOY_DIR&quot; remote set-url origin &quot;${GIT_CRED}Web-parsers/${{ env.APP_NAME }}.git&quot;
+              git -C &quot;$DEPLOY_DIR&quot; fetch --all
+              git -C &quot;$DEPLOY_DIR&quot; checkout &quot;${{ env.BRANCH }}&quot;
+              git -C &quot;$DEPLOY_DIR&quot; pull --ff-only
+
+              git -C &quot;$DEPLOY_DIR&quot; submodule foreach --recursive &quot;git remote set-url origin \$(git remote get-url origin | sed 's|https://github.com/|${GIT_CRED}|')&quot;
+              git -C &quot;$DEPLOY_DIR&quot; pull --ff-only --recurse-submodules
+
+            else
+              echo &quot;→ Cloning into $DEPLOY_DIR&quot;
+              # Clone with a one-time Bearer header so submodules are fetched without prompts
+              GIT_ASKPASS=echo git clone \
+                -c http.extraheader=&quot;Authorization: Bearer $GHCR_TOKEN&quot; \
+                --branch &quot;${{ env.BRANCH }}&quot; \
+                --recursive \
+                &quot;https://github.com/Web-parsers/${{ env.APP_NAME }}.git&quot; \
+                &quot;$DEPLOY_DIR&quot;
+            fi
+
+            cd &quot;$DEPLOY_DIR&quot;
+
+            docker compose down --remove-orphans
+            docker compose up -d --build
 </code></pre>
-<p><strong>How it works:</strong></p>
-<pre><code class="language-python">async headers_manager(..., use_sem=True) as hm:
-    # POST /{hm}/acquire - acquires exclusive access to headers/cookies
-    request(hm.headers)
-    # POST /{hm}/release/{uuid} - releases acquired cookies by UUID
-</code></pre>
-<h2 id="server-configuration">Server Configuration</h2>
-<h3 id="adding-a-new-headersmanager">Adding a New HeadersManager</h3>
-<p>To add a new HeadersManager configuration:</p>
-<ol>
-<li><strong>Create a browser bypass script</strong> in <code>service/headers_manager/bypasses/{script_name}.py</code></li>
-<li><strong>Write a configuration</strong> that references your script</li>
-</ol>
-<h3 id="example-configuration">Example Configuration</h3>
-<p><a href="https://github.com/Web-parsers/proxy-service/tree/headers-manager">Headers-manager server repository</a></p>
-<p><strong>Example bypass script:</strong> <a href="https://github.com/Web-parsers/proxy-service/blob/headers-manager/service/headers_manager/bypasses/bypass_cf_rozetka.py">bypass_cf_rozetka.py</a></p>
-<p><strong>Configuration file:</strong></p>
-<pre><code class="language-json">{
-    &quot;name&quot;: &quot;rozetka_podushka&quot;,
-    &quot;script_name&quot;: &quot;bypass_cf_rozetka&quot;,
-    &quot;url&quot;: &quot;any&quot;,
-    &quot;max_cache&quot;: 2,
-    &quot;idle_time&quot;: 150,
-    &quot;updates_semaphore&quot;: 2,
-    &quot;meta&quot;: {
-        &quot;proxy&quot;: {
-            &quot;country_codes&quot;: [&quot;ua&quot;],
-            &quot;service&quot;: &quot;webshare&quot;
-        }
-    }
-}
-</code></pre>
-<h3 id="configuration-parameters">Configuration Parameters</h3>
-<blockquote>
-<p><strong>Note:</strong> If a parameter is not specified in the config, the DEFAULT value is used.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>str</code></td>
-<td><em>required</em></td>
-<td>Unique identifier used in client: <code>headers_manager(name)</code></td>
-</tr>
-<tr>
-<td><code>script_name</code></td>
-<td><code>str</code></td>
-<td><em>required</em></td>
-<td>Script filename (without path) located in <code>bypasses/</code> directory</td>
-</tr>
-<tr>
-<td><code>url</code></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>Optional URL if one script handles multiple domains</td>
-</tr>
-<tr>
-<td><code>max_cache</code></td>
-<td><code>int</code></td>
-<td><code>10</code></td>
-<td>Maximum number of cached headers/cookies at one time</td>
-</tr>
-<tr>
-<td><code>max_failures</code></td>
-<td><code>int</code></td>
-<td><code>10</code></td>
-<td>Number of failures before cache is removed</td>
-</tr>
-<tr>
-<td><code>updates_semaphore</code></td>
-<td><code>int</code></td>
-<td><code>5</code></td>
-<td>Maximum simultaneous browser updates (e.g., 5 = 5 browsers)</td>
-</tr>
-<tr>
-<td><code>idle_time</code></td>
-<td><code>int</code></td>
-<td><code>1800</code> (30 min)</td>
-<td>Seconds of inactivity before HeadersManager pauses monitoring</td>
-</tr>
-<tr>
-<td><code>ttl</code></td>
-<td><code>int</code></td>
-<td><code>DEFAULT_CACHE_TTL</code></td>
-<td>Time-to-live before cache is automatically removed</td>
-</tr>
-<tr>
-<td><code>cache_concurrency</code></td>
-<td><code>int \| None</code></td>
-<td><code>None</code></td>
-<td>Concurrent requests per cache. <code>None</code> = unlimited. If set to <code>3</code>, only 3 requests allowed simultaneously per cache</td>
-</tr>
-<tr>
-<td><code>meta</code></td>
-<td><code>dict \| None</code></td>
-<td><code>None</code></td>
-<td>Additional data passed to browser script (proxy settings, URLs, etc.)</td>
-</tr>
-</tbody>
-</table>
 
 
 
