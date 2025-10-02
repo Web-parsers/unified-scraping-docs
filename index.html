@@ -261,9 +261,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-env-file" class="md-nav__link">
+  <a href="#configuration-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure .env file
+      Configuration Reference
     </span>
   </a>
   
@@ -364,6 +364,28 @@
   
   
     <li class="md-nav__item">
+      <a href="4_headers_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HeadersManager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="impersonated_request/" class="md-nav__link">
         
   
@@ -425,9 +447,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-env-file" class="md-nav__link">
+  <a href="#configuration-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure .env file
+      Configuration Reference
     </span>
   </a>
   
@@ -475,20 +497,72 @@
 <h3 id="1-add-as-a-submodule">1. Add as a submodule</h3>
 <pre><code class="language-bash">git submodule add https://github.com/Web-parsers/unified-scraping.git unified_scraping
 </code></pre>
-<h3 id="2-configure-env-file">2. Configure <code>.env</code> file</h3>
 <pre><code class="language-dotenv"># Proxy integration
-PROXY_INTEGRATION_API_KEY=&lt;api key to proxy-service&gt;    # see Slack #dev-links channel
+PROXY_INTEGRATION_API_KEY=&lt;api key to proxy-service&gt;
 PROXY_INTEGRATION_URL=&lt;proxy-service url&gt;
-PROXY_INTEGRATION_POLLING_INTERVAL=600                  # polling interval (600s = good default)
+PROXY_INTEGRATION_POLLING_INTERVAL=600
+HEADERS_MANAGER_URL=&lt;headers-manager url&gt;
 
 # Project settings
-PROJECT_NAME=my-project                                 # project name (used in logs)
+PROJECT_NAME=my-project
 
 # Impersonated request defaults
-IMPERSONATED_REQUEST_DEFAULT_ENABLE_PROXY=False         # use proxies by default
-IMPERSONATED_REQUEST_PROXY_MAX_RETRIES=10               # retries per proxy for a single URL
-IMPERSONATED_REQUEST_URL_MAX_RETRIES=100                # total retries per URL
+IMPERSONATED_REQUEST_DEFAULT_ENABLE_PROXY=False
+IMPERSONATED_REQUEST_PROXY_MAX_RETRIES=10
+IMPERSONATED_REQUEST_URL_MAX_RETRIES=100
 </code></pre>
+<h3 id="configuration-reference">Configuration Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Default/Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROXY_INTEGRATION_API_KEY</code></td>
+<td>API key for proxy service</td>
+<td>Find in Slack #dev-links</td>
+</tr>
+<tr>
+<td><code>PROXY_INTEGRATION_URL</code></td>
+<td>Proxy service endpoint</td>
+<td>Find in Slack #dev-links</td>
+</tr>
+<tr>
+<td><code>PROXY_INTEGRATION_POLLING_INTERVAL</code></td>
+<td>Polling interval in seconds</td>
+<td><code>600</code> recommended</td>
+</tr>
+<tr>
+<td><code>HEADERS_MANAGER_URL</code></td>
+<td>Headers manager endpoint</td>
+<td>Find in Slack #dev-links</td>
+</tr>
+<tr>
+<td><code>PROJECT_NAME</code></td>
+<td>Project identifier for logs</td>
+<td>Any string</td>
+</tr>
+<tr>
+<td><code>IMPERSONATED_REQUEST_DEFAULT_ENABLE_PROXY</code></td>
+<td>Enable proxies by default</td>
+<td><code>False</code> (use <code>True</code> in prod)</td>
+</tr>
+<tr>
+<td><code>IMPERSONATED_REQUEST_PROXY_MAX_RETRIES</code></td>
+<td>Retries per proxy per URL</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>IMPERSONATED_REQUEST_URL_MAX_RETRIES</code></td>
+<td>Total retries per URL</td>
+<td><code>100</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="3-try-it-out">3. Try it out</h3>
 <p>Run:</p>
 <pre><code class="language-bash">python -m unified_scraping.examples.impersonated_request_base_examples
