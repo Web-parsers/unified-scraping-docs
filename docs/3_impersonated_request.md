@@ -19,6 +19,62 @@ So we can setup behavior:
 * retries per url
 * retries per proxy
 
+## Request Statistics
+
+The `ImpersonatedRequest` class now tracks request statistics automatically:
+
+- **`success_count`** — number of successful requests (HTTP 2xx/3xx that passed all checkers without failure actions)
+- **`failure_count`** — number of failed attempts (exceptions or checker failures)
+- **`total_count`** — total number of request attempts
+- **`bussines_failure_count`** — number of URLs that exhausted all retries (raised `TooMuchRetries`)
+
+```python
+from unified_scraping import request
+
+# Make some requests
+await request("https://example.com", "GET", enable_proxy=False)
+await request("https://example.com", "GET", enable_proxy=False)
+
+# Check statistics
+print(f"Success: {request.success_count}")
+print(f"Failures: {request.failure_count}")
+print(f"Total attempts: {request.total_count}")
+print(f"Business failures: {request.bussines_failure_count}")
+```
+
+These counters are useful for monitoring scraping health and debugging retry patterns.
+
+### How success/failure is counted
+
+The success/failure counting is determined by **response checkers**:
+
+- **Success** is counted when the request succeeds AND all response checkers either return `False` or have `on_check="continue"`
+- **Failure** is counted when at least one response checker returns `True` with `on_check` set to `"retry"`, `"change_proxy"`, or `"drop"`
+
+**Important:** Multiple checkers with failure actions (`retry`, `change_proxy`, `drop`) will only increment the failure counter **once per request**, not once per checker. This means it's safe to use multiple checkers without inflating your failure statistics.
+
+```python
+@request.response_checker(on_check="retry")
+async def check_captcha(resp):
+    return "captcha" in resp.text
+
+@request.response_checker(on_check="retry")
+async def check_rate_limit(resp):
+    return resp.status_code == 429
+
+@request.response_checker(on_check="change_proxy")
+async def check_blocked(resp):
+    return "blocked" in resp.text
+
+# If request triggers check_captcha=True and check_blocked=True:
+# - failure_count increases by 1 (not 2!)
+# - The action with highest priority (change_proxy) is executed
+```
+
+Exception-based failures (network errors, timeouts, HTTP errors) also increment `failure_count` once per attempt.
+
+---
+
 ## Own Realisation
 If you want more control for request you can import class
 `from unified_scraping import ImpersonatedRequest`
@@ -121,6 +177,3 @@ def check_login(resp: Response):
         return True
     return False
 ```
-
-
-
