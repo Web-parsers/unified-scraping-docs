@@ -288,18 +288,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recommended-patterns" class="md-nav__link">
+  <a href="#cache-key-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Recommended patterns
+      Cache key structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#recommended-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-single-key-across-your-app-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) Single key across your app (most common)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-cleanup-on-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Cleanup on shutdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-tests-scripts-explicit-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Tests / scripts (explicit cleanup)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#long-running-or-scraping-api-case" class="md-nav__link">
     <span class="md-ellipsis">
-      Long-running or scraping-API case:
+      Long-running or scraping-API case
     </span>
   </a>
   
@@ -334,36 +376,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_cached_toolbox_keys-list_toolboxkey" class="md-nav__link">
+  <a href="#get_cached_toolbox_keys-listtupletuplestr-str-str-str" class="md-nav__link">
     <span class="md-ellipsis">
-      get_cached_toolbox_keys() -&gt; list[_ToolboxKey]
+      get_cached_toolbox_keys() -&gt; list[tuple[tuple[str, ...], str, str, str]]
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_toolboxkey-_toolboxkey-toolbox-none" class="md-nav__link">
+  <a href="#get_toolboxkey-tupletuplestr-str-str-str-toolbox-none" class="md-nav__link">
     <span class="md-ellipsis">
-      get_toolbox(key: _ToolboxKey) -&gt; ToolBox | None
+      get_toolbox(key: tuple[tuple[str, ...], str, str, str]) -&gt; ToolBox | None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_key_by_toolboxtb-toolbox-_toolboxkey-none" class="md-nav__link">
+  <a href="#get_key_by_toolboxtb-toolbox-tupletuplestr-str-str-str-none" class="md-nav__link">
     <span class="md-ellipsis">
-      get_key_by_toolbox(tb: ToolBox) -&gt; _ToolboxKey | None
+      get_key_by_toolbox(tb: ToolBox) -&gt; tuple[tuple[str, ...], str, str, str] | None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_toolbox_taskskey-_toolboxkey-dictstr-asynciotask" class="md-nav__link">
+  <a href="#get_toolbox_taskskey-tupletuplestr-str-str-str-dictstr-asynciotask" class="md-nav__link">
     <span class="md-ellipsis">
-      get_toolbox_tasks(key: _ToolboxKey) -&gt; dict[str, asyncio.Task]
+      get_toolbox_tasks(key: tuple[tuple[str, ...], str, str, str]) -&gt; dict[str, asyncio.Task]
     </span>
   </a>
   
@@ -371,6 +413,81 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-management-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache management tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache management tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspect-current-cache-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspect current cache state
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-cache-bloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prevent cache bloat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-specific-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service-specific considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service-specific considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datacenter-proxies-webshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datacenter proxies (webshare)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#residential-proxies-evomi-webshare_high_rotating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residential proxies (evomi, webshare_high_rotating)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
   
 </li>
       
@@ -497,18 +614,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recommended-patterns" class="md-nav__link">
+  <a href="#cache-key-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Recommended patterns
+      Cache key structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#recommended-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-single-key-across-your-app-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) Single key across your app (most common)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-cleanup-on-shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Cleanup on shutdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-tests-scripts-explicit-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Tests / scripts (explicit cleanup)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#long-running-or-scraping-api-case" class="md-nav__link">
     <span class="md-ellipsis">
-      Long-running or scraping-API case:
+      Long-running or scraping-API case
     </span>
   </a>
   
@@ -543,36 +702,36 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_cached_toolbox_keys-list_toolboxkey" class="md-nav__link">
+  <a href="#get_cached_toolbox_keys-listtupletuplestr-str-str-str" class="md-nav__link">
     <span class="md-ellipsis">
-      get_cached_toolbox_keys() -&gt; list[_ToolboxKey]
+      get_cached_toolbox_keys() -&gt; list[tuple[tuple[str, ...], str, str, str]]
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_toolboxkey-_toolboxkey-toolbox-none" class="md-nav__link">
+  <a href="#get_toolboxkey-tupletuplestr-str-str-str-toolbox-none" class="md-nav__link">
     <span class="md-ellipsis">
-      get_toolbox(key: _ToolboxKey) -&gt; ToolBox | None
+      get_toolbox(key: tuple[tuple[str, ...], str, str, str]) -&gt; ToolBox | None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_key_by_toolboxtb-toolbox-_toolboxkey-none" class="md-nav__link">
+  <a href="#get_key_by_toolboxtb-toolbox-tupletuplestr-str-str-str-none" class="md-nav__link">
     <span class="md-ellipsis">
-      get_key_by_toolbox(tb: ToolBox) -&gt; _ToolboxKey | None
+      get_key_by_toolbox(tb: ToolBox) -&gt; tuple[tuple[str, ...], str, str, str] | None
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_toolbox_taskskey-_toolboxkey-dictstr-asynciotask" class="md-nav__link">
+  <a href="#get_toolbox_taskskey-tupletuplestr-str-str-str-dictstr-asynciotask" class="md-nav__link">
     <span class="md-ellipsis">
-      get_toolbox_tasks(key: _ToolboxKey) -&gt; dict[str, asyncio.Task]
+      get_toolbox_tasks(key: tuple[tuple[str, ...], str, str, str]) -&gt; dict[str, asyncio.Task]
     </span>
   </a>
   
@@ -580,6 +739,81 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-management-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache management tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache management tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspect-current-cache-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspect current cache state
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevent-cache-bloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prevent cache bloat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-specific-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service-specific considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service-specific considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datacenter-proxies-webshare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datacenter proxies (webshare)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#residential-proxies-evomi-webshare_high_rotating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Residential proxies (evomi, webshare_high_rotating)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
   
 </li>
       
@@ -600,36 +834,50 @@
 
 
 <h1 id="toolbox-cache-utils-rules">Toolbox Cache / Utils / Rules</h1>
-<p><code>async with toolbox()</code> spin up new connection, create polling task, storage and jar. And never closes it automatically.</p>
-<p>That's because each "key": <code>(["US", "DE"], "list", "random")</code> is cached. If you ever create toolbox with same values it will be loaded from cache</p>
+<p><code>async with toolbox()</code> spins up a new connection, creates polling task, storage and jar. And never closes it automatically.</p>
+<p>That's because each "key": <code>(("US", "DE"), "list", "random", "webshare")</code> is cached. If you ever create toolbox with the same values it will be loaded from cache.</p>
 <ul>
 <li><strong>Safe:</strong> Calling <code>toolbox()</code> many times <strong>with the same key</strong> (e.g., inside handlers) — you'll get the cached instance.</li>
-<li><strong>Safe</strong> Don't close toolbox in one-time scripts, it will close automatically</li>
-<li><strong>Risky:</strong> Spinning up many toolboxes <strong>with different keys</strong> — each creates its own polling/storage tasks and can exhaust resources.</li>
+<li><strong>Safe:</strong> Don't close toolbox in one-time scripts, it will close automatically.</li>
+<li><strong>Risky:</strong> Spinning up many toolboxes <strong>with different keys</strong> — each creates its own polling/storage tasks and can exhaust resources (note: residential proxy services don't create background polling tasks).</li>
 </ul>
 <blockquote>
-<p>warning "Closing behavior"
-    The cached toolbox <strong>is not auto-closed</strong> by the context manager if it was already created before.<br />
-    If you open multiple toolboxes (especially with different keys), <strong>manually clean them up</strong> on shutdown.</p>
-<p>In jupyter notebooks, toolbox can hang-up infinitely in jupyter, so remember to close it </p>
-<p>It is safe to don't close toolbox for one-time scripts, it will closes automatically, but better to have graceful shutdown in any case</p>
+<p><strong>Warning: Closing behavior</strong><br />
+The cached toolbox <strong>is not auto-closed</strong> by the context manager if it was already created before.<br />
+If you open multiple toolboxes (especially with different keys), <strong>manually clean them up</strong> on shutdown.</p>
+<p><strong>Note:</strong> In jupyter notebooks, toolbox can hang up infinitely, so remember to close it.</p>
+<p><strong>Note:</strong> It is safe to not close toolbox for one-time scripts - it will close automatically, but it's better to have graceful shutdown in any case.</p>
 </blockquote>
-<h3 id="recommended-patterns">Recommended patterns</h3>
-<p><strong>a) Single key across your app (most common)</strong></p>
-<pre><code class="language-python">from unified_scraping import toolbox
-
-TOOLBOX_ARGS = dict(country_codes=(&quot;DE&quot;,), storage_type=&quot;list&quot;, jar_type=&quot;random&quot;)
+<hr />
+<h2 id="cache-key-structure">Cache key structure</h2>
+<p>A toolbox cache key consists of <strong>four components</strong>:</p>
+<pre><code class="language-python">(country_codes, storage_type, jar_type, service)
 </code></pre>
+<p><strong>Examples:</strong>
+- <code>(("DE",), "list", "random", "webshare")</code> — German datacenter proxies
+- <code>(("US", "GB"), "queue", "exhausting", "webshare")</code> — US+GB datacenter proxies with exhausting jar
+- <code>(("DE",), "list", "random", "evomi")</code> — German residential proxies
+- <code>((), "list", "roundrobin", "webshare_high_rotating")</code> — All countries, residential rotating proxies</p>
+<blockquote>
+<p><strong>Important:</strong> Changing <strong>any</strong> of these four parameters creates a <strong>new</strong> cache entry with separate polling/storage tasks.</p>
+</blockquote>
+<hr />
+<h2 id="recommended-patterns">Recommended patterns</h2>
+<h3 id="a-single-key-across-your-app-most-common">a) Single key across your app (most common)</h3>
 <pre><code class="language-python"># module: scraping.py
-from unified_scraping import request
-from deps import TOOLBOX_ARGS, toolbox
+from unified_scraping import request, toolbox
 
 async def handle():
-    async with toolbox(**TOOLBOX_ARGS) as tb:  # returns cached instance
-        r = await request(&quot;http://ip-api.com/json/&quot;, &quot;GET&quot;, enable_proxy=True, proxy_jar=tb.jar)
+    async with toolbox(country_codes=(&quot;DE&quot;,), storage_type=&quot;list&quot;, jar_type=&quot;random&quot;) as tb:  # returns cached instance
+        r = await request(
+            &quot;http://ip-api.com/json/&quot;,
+            &quot;GET&quot;,
+            enable_proxy=True,
+            proxy_jar=tb.jar
+        )
         return r.json()
 </code></pre>
-<p><strong>b) Cleanup on shutdown</strong></p>
+<h3 id="b-cleanup-on-shutdown">b) Cleanup on shutdown</h3>
 <pre><code class="language-python">import asyncio
 import signal
 from unified_scraping.toolbox_runner import cleanup_all_toolboxes
@@ -639,22 +887,32 @@ async def _graceful_shutdown(*_):
 
 def install_signals(loop: asyncio.AbstractEventLoop):
     for sig in (signal.SIGINT, signal.SIGTERM):
-        loop.add_signal_handler(sig, lambda s=sig: asyncio.create_task(_graceful_shutdown(s)))
+        loop.add_signal_handler(
+            sig,
+            lambda s=sig: asyncio.create_task(_graceful_shutdown(s))
+        )
 </code></pre>
-<p><strong>c) Tests / scripts (explicit cleanup)</strong></p>
+<h3 id="c-tests-scripts-explicit-cleanup">c) Tests / scripts (explicit cleanup)</h3>
 <pre><code class="language-python">from unified_scraping import toolbox
 from unified_scraping.toolbox_runner import cleanup_toolbox
 
 async def run_once():
-    tb = await toolbox(country_codes=(&quot;DE&quot;,), storage_type=&quot;queue&quot;, jar_type=&quot;exhausting&quot;).__aenter__()
-    try:
-        # ... use tb.jar / tb.storage
-        ...
-    finally:
-        await cleanup_toolbox(tb)
+    async with toolbox(
+        country_codes=(&quot;DE&quot;,),
+        storage_type=&quot;queue&quot;,
+        jar_type=&quot;exhausting&quot;,
+        service=&quot;webshare&quot;,
+    ) as tb:
+        try:
+            # ... use tb.jar / tb.storage
+            ...
+        finally:
+            await cleanup_toolbox(tb)
 </code></pre>
-<h2 id="long-running-or-scraping-api-case">Long-running or scraping-API case:</h2>
-<p>If you want use toolbox in developing scraping-API and curious how to do it - limit yourself with one key, it won't take to much RAM or CPU, and you will always have clean and up-to-date proxies in any part of code</p>
+<hr />
+<h2 id="long-running-or-scraping-api-case">Long-running or scraping-API case</h2>
+<p>If you want to use toolbox in developing scraping-API and are curious how to do it - limit yourself with one key, it won't take too much RAM or CPU, and you will always have clean and up-to-date proxies in any part of code.</p>
+<hr />
 <h2 id="manual-cleanup-api">Manual cleanup API</h2>
 <p>These helpers let you manage cached toolboxes and their tasks explicitly.</p>
 <pre><code class="language-python">from unified_scraping.toolbox_runner import (
@@ -674,31 +932,126 @@ async def run_once():
 <li>Stops <code>tb.proxy_storage</code> and <code>tb.integration</code>.</li>
 <li>Raises <code>KeyError</code> if the toolbox is not found in the cache.</li>
 </ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">tb = await toolbox(country_codes=(&quot;DE&quot;,), service=&quot;webshare&quot;).__aenter__()
+try:
+    # ... use tb
+    pass
+finally:
+    await cleanup_toolbox(tb)
+</code></pre>
+<hr />
 <h3 id="await-cleanup_all_toolboxes-none"><code>await cleanup_all_toolboxes() -&gt; None</code></h3>
 <p>Closes <strong>all</strong> cached toolboxes. Useful in app shutdown hooks.</p>
 <pre><code class="language-python">await cleanup_all_toolboxes()
 </code></pre>
-<h3 id="get_cached_toolbox_keys-list_toolboxkey"><code>get_cached_toolbox_keys() -&gt; list[_ToolboxKey]</code></h3>
-<p>Returns all cache keys currently present.</p>
-<pre><code class="language-python">keys = get_cached_toolbox_keys()
-# Example item: ((&quot;DE&quot;, &quot;US&quot;), &quot;queue&quot;, &quot;exhausting&quot;)
-</code></pre>
-<h3 id="get_toolboxkey-_toolboxkey-toolbox-none"><code>get_toolbox(key: _ToolboxKey) -&gt; ToolBox | None</code></h3>
-<p>Fetches a toolbox by key (without creating a new one).</p>
-<pre><code class="language-python">key = ((&quot;DE&quot;,), &quot;list&quot;, &quot;random&quot;)
-tb = get_toolbox(key)
-</code></pre>
-<h3 id="get_key_by_toolboxtb-toolbox-_toolboxkey-none"><code>get_key_by_toolbox(tb: ToolBox) -&gt; _ToolboxKey | None</code></h3>
-<p>Returns a toolbox's cache key if it exists in the cache.</p>
-<pre><code class="language-python">key = get_key_by_toolbox(tb)
-</code></pre>
-<h3 id="get_toolbox_taskskey-_toolboxkey-dictstr-asynciotask"><code>get_toolbox_tasks(key: _ToolboxKey) -&gt; dict[str, asyncio.Task]</code></h3>
-<p>Returns <strong>running</strong> background tasks for a toolbox (namespaced as <code>integration:*</code> or <code>storage:*</code>).</p>
-<pre><code class="language-python">tasks = get_toolbox_tasks(((&quot;DE&quot;,), &quot;queue&quot;, &quot;exhausting&quot;))
-for name, task in tasks.items():
-    print(name, task, task.done())
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">async def shutdown():
+    print(&quot;Cleaning up all toolboxes...&quot;)
+    await cleanup_all_toolboxes()
+    print(&quot;Shutdown complete&quot;)
 </code></pre>
 <hr />
+<h3 id="get_cached_toolbox_keys-listtupletuplestr-str-str-str"><code>get_cached_toolbox_keys() -&gt; list[tuple[tuple[str, ...], str, str, str]]</code></h3>
+<p>Returns all cache keys currently present. Each key is a 4-tuple:</p>
+<pre><code class="language-python">(country_codes, storage_type, jar_type, service)
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">keys = get_cached_toolbox_keys()
+for key in keys:
+    country_codes, storage_type, jar_type, service = key
+    print(f&quot;Service: {service}, Countries: {country_codes}, &quot;
+          f&quot;Storage: {storage_type}, Jar: {jar_type}&quot;)
+
+# Example output:
+# Service: webshare, Countries: ('DE', 'US'), Storage: queue, Jar: exhausting
+# Service: evomi, Countries: ('US',), Storage: list, Jar: random
+</code></pre>
+<hr />
+<h3 id="get_toolboxkey-tupletuplestr-str-str-str-toolbox-none"><code>get_toolbox(key: tuple[tuple[str, ...], str, str, str]) -&gt; ToolBox | None</code></h3>
+<p>Fetches a toolbox by key (without creating a new one).</p>
+<pre><code class="language-python">key = ((&quot;DE&quot;,), &quot;list&quot;, &quot;random&quot;, &quot;webshare&quot;)
+tb = get_toolbox(key)
+if tb:
+    print(&quot;Toolbox found in cache&quot;)
+else:
+    print(&quot;Toolbox not in cache&quot;)
+</code></pre>
+<hr />
+<h3 id="get_key_by_toolboxtb-toolbox-tupletuplestr-str-str-str-none"><code>get_key_by_toolbox(tb: ToolBox) -&gt; tuple[tuple[str, ...], str, str, str] | None</code></h3>
+<p>Returns a toolbox's cache key if it exists in the cache.</p>
+<pre><code class="language-python">async with toolbox(country_codes=(&quot;US&quot;,), service=&quot;evomi&quot;) as tb:
+    key = get_key_by_toolbox(tb)
+    print(key)  # (('US',), 'list', 'roundrobin', 'evomi')
+</code></pre>
+<hr />
+<h3 id="get_toolbox_taskskey-tupletuplestr-str-str-str-dictstr-asynciotask"><code>get_toolbox_tasks(key: tuple[tuple[str, ...], str, str, str]) -&gt; dict[str, asyncio.Task]</code></h3>
+<p>Returns <strong>running</strong> background tasks for a toolbox (namespaced as <code>integration:*</code> or <code>storage:*</code>).</p>
+<pre><code class="language-python">key = ((&quot;DE&quot;,), &quot;queue&quot;, &quot;exhausting&quot;, &quot;webshare&quot;)
+tasks = get_toolbox_tasks(key)
+
+for name, task in tasks.items():
+    print(f&quot;Task: {name}, Done: {task.done()}, Cancelled: {task.cancelled()}&quot;)
+
+# Example output:
+# Task: integration:poll, Done: False, Cancelled: False
+# Task: storage:refill, Done: False, Cancelled: False
+</code></pre>
+<p><strong>Use case:</strong> Debugging or monitoring background task health in production.</p>
+<hr />
+<h2 id="cache-management-tips">Cache management tips</h2>
+<h3 id="inspect-current-cache-state">Inspect current cache state</h3>
+<pre><code class="language-python">from unified_scraping.toolbox_runner import get_cached_toolbox_keys, get_toolbox_tasks
+
+# See what's cached
+keys = get_cached_toolbox_keys()
+print(f&quot;Active toolbox configurations: {len(keys)}&quot;)
+
+for key in keys:
+    tasks = get_toolbox_tasks(key)
+    print(f&quot;\nKey: {key}&quot;)
+    print(f&quot;  Active tasks: {len(tasks)}&quot;)
+    for task_name, task in tasks.items():
+        print(f&quot;    {task_name}: {'running' if not task.done() else 'finished'}&quot;)
+</code></pre>
+<h3 id="prevent-cache-bloat">Prevent cache bloat</h3>
+<p><strong>Anti-pattern (creates many cache entries):</strong></p>
+<pre><code class="language-python"># DON'T: Different country codes each time
+for country in [&quot;US&quot;, &quot;DE&quot;, &quot;FR&quot;, &quot;GB&quot;, &quot;ES&quot;]:
+    async with toolbox(country_codes=(country,), service=&quot;webshare&quot;) as tb:
+        ...  # Creates 5 separate cache entries!
+</code></pre>
+<p><strong>Better pattern:</strong></p>
+<pre><code class="language-python"># DO: Use one broad configuration
+async with toolbox(
+    country_codes=(&quot;US&quot;, &quot;DE&quot;, &quot;FR&quot;, &quot;GB&quot;, &quot;ES&quot;),
+    service=&quot;webshare&quot;
+) as tb:
+    ...  # Single cache entry
+</code></pre>
+<p>Or use the toolbox's proxy filtering capabilities after retrieval if you need country-specific behavior.</p>
+<hr />
+<h2 id="service-specific-considerations">Service-specific considerations</h2>
+<h3 id="datacenter-proxies-webshare">Datacenter proxies (webshare)</h3>
+<ul>
+<li>Support all storage and jar types</li>
+<li>Background polling refreshes proxy list periodically</li>
+</ul>
+<h3 id="residential-proxies-evomi-webshare_high_rotating">Residential proxies (evomi, webshare_high_rotating)</h3>
+<ul>
+<li>Only support <code>ListProxyStorage</code> + <code>RandomProxyJar</code>/<code>RoundRobinProxyJar</code></li>
+<li>Proxy rotation handled at provider level</li>
+<li>Do not create background polling tasks</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Cache key</strong> = <code>(country_codes, storage_type, jar_type, service)</code></li>
+<li><strong>Same key</strong> = reuses cached instance (efficient)</li>
+<li><strong>Different key</strong> = new instance with separate background tasks (resource cost)</li>
+<li><strong>Best practice</strong>: Use 1-2 keys for most applications</li>
+<li><strong>Always</strong>: Call <code>cleanup_all_toolboxes()</code> on shutdown for clean exit</li>
+</ul>
 
 
 

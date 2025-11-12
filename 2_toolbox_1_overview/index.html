@@ -284,11 +284,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jars-storage-compatibility" class="md-nav__link">
+  <a href="#proxy-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Jars × Storage compatibility
+      Proxy services
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jars-storage-service-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jars × Storage × Service compatibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jars × Storage × Service compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webshare-datacenter-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webshare (datacenter proxies)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evomi-webshare-high-rotating-residential-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evomi &amp; Webshare High Rotating (residential proxies)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -315,6 +348,39 @@
   <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-specific-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service-specific limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service-specific limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webshare-datacenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webshare (datacenter)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evomi-webshare-high-rotating-residential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evomi &amp; Webshare High Rotating (residential)
     </span>
   </a>
   
@@ -506,11 +572,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#jars-storage-compatibility" class="md-nav__link">
+  <a href="#proxy-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Jars × Storage compatibility
+      Proxy services
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jars-storage-service-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jars × Storage × Service compatibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jars × Storage × Service compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webshare-datacenter-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webshare (datacenter proxies)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evomi-webshare-high-rotating-residential-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evomi &amp; Webshare High Rotating (residential proxies)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -537,6 +636,39 @@
   <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-specific-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service-specific limitations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service-specific limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webshare-datacenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webshare (datacenter)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evomi-webshare-high-rotating-residential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evomi &amp; Webshare High Rotating (residential)
     </span>
   </a>
   
@@ -615,8 +747,20 @@ if __name__ == &quot;__main__&quot;:
 <li><code>ExhaustingProxyJar</code> — sticky/one‑time use; removes a proxy until it is refilled</li>
 </ul>
 <hr />
-<h2 id="jars-storage-compatibility">Jars × Storage compatibility</h2>
-<p>Some strategies fit certain storages better. Use this matrix as a quick guide:</p>
+<h2 id="proxy-services">Proxy services</h2>
+<p>Toolbox supports multiple proxy services via the <code>service</code> parameter:</p>
+<ul>
+<li><strong>webshare</strong> (default) — datacenter proxies with full feature support</li>
+<li><strong>evomi</strong> — residential proxies (rotating)</li>
+<li><strong>webshare_high_rotating</strong> — residential proxies from Webshare (rotating)</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Rotating residential proxy services (<code>evomi</code>, <code>webshare_high_rotating</code>) only support <code>ListProxyStorage</code> with <code>RandomProxyJar</code> or <code>RoundRobinProxyJar</code>. The <code>ExhaustingProxyJar</code> and <code>QueueProxyStorage</code> are not compatible with rotating services.</p>
+</blockquote>
+<hr />
+<h2 id="jars-storage-service-compatibility">Jars × Storage × Service compatibility</h2>
+<p>Some strategies fit certain storages and services better. Use this matrix as a quick guide:</p>
+<h3 id="webshare-datacenter-proxies">Webshare (datacenter proxies)</h3>
 <table>
 <thead>
 <tr>
@@ -641,29 +785,64 @@ if __name__ == &quot;__main__&quot;:
 </tr>
 </tbody>
 </table>
+<h3 id="evomi-webshare-high-rotating-residential-proxies">Evomi &amp; Webshare High Rotating (residential proxies)</h3>
+<table>
+<thead>
+<tr>
+<th>Storage ↓ / Jar →</th>
+<th>RandomProxyJar</th>
+<th>RoundRobinProxyJar</th>
+<th>ExhaustingProxyJar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ListProxyStorage</strong></td>
+<td>✅ Supported</td>
+<td>✅ Supported</td>
+<td>❌ Not supported</td>
+</tr>
+<tr>
+<td><strong>QueueProxyStorage</strong></td>
+<td>❌ Not supported</td>
+<td>❌ Not supported</td>
+<td>❌ Not supported</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p><strong>Rule of thumb:</strong> <code>ListProxyStorage</code> is a great default for ~80% of use cases. Prefer <code>QueueProxyStorage</code> when you need sticky/one‑shot semantics with <code>ExhaustingProxyJar</code>.</p>
+<p><strong>Rule of thumb:</strong> <code>ListProxyStorage</code> is a great default for ~80% of use cases. Prefer <code>QueueProxyStorage</code> when you need sticky/one‑shot semantics with <code>ExhaustingProxyJar</code> (only available with <code>webshare</code> service).</p>
 </blockquote>
 <hr />
 <h2 id="how-to-choose-a-jar-strategy">How to choose a jar (strategy)</h2>
-<p>There is no single “best” strategy. Pick based on the target site’s defenses and your traffic pattern:</p>
+<p>There is no single "best" strategy. Pick based on the target site's defenses and your traffic pattern:</p>
 <ul>
 <li><strong>RandomProxyJar</strong> — good default when you have many independent requests and want simple load spreading.</li>
 <li><strong>RoundRobinProxyJar</strong> — evens out usage across your pool; helpful when providers rate‑limit per IP.</li>
-<li><strong>ExhaustingProxyJar</strong> — avoid reusing the same proxy within a short window; ideal for flows where you want “consume and move on.”</li>
+<li><strong>ExhaustingProxyJar</strong> — avoid reusing the same proxy within a short window; ideal for flows where you want "consume and move on." <em>(Only available with <code>webshare</code> service and <code>QueueProxyStorage</code>)</em></li>
 </ul>
 <blockquote>
 <p><strong>Tip:</strong> run short A/B tests (same workload, different jars) and compare success rate, average latency, and ban rate.</p>
 </blockquote>
 <hr />
 <h2 id="custom-toolbox">Custom toolbox</h2>
-<p>You can customize country filtering, storage type, and jar type. Example:</p>
+<p>You can customize country filtering, storage type, jar type, and proxy service. Example:</p>
 <pre><code class="language-python">from unified_scraping import toolbox
 
+# Datacenter proxies with full features (default)
 async with toolbox(
     country_codes=(&quot;DE&quot;,),   # e.g. (&quot;DE&quot;, &quot;US&quot;); case-insensitive
     storage_type=&quot;queue&quot;,    # &quot;list&quot; or &quot;queue&quot;
-    jar_type=&quot;exhausting&quot;,   # &quot;random&quot;, &quot;roundrobin&quot;, or &quot;exhausting&quot; (&quot;exhausting&quot; requires &quot;queue&quot;)
+    jar_type=&quot;exhausting&quot;,   # &quot;random&quot;, &quot;roundrobin&quot;, or &quot;exhausting&quot;
+    service=&quot;webshare&quot;,      # default service
+) as tb:
+    ...
+
+# Residential proxies (rotating)
+async with toolbox(
+    country_codes=(&quot;DE&quot;, &quot;US&quot;),
+    service=&quot;webshare_high_rotating&quot;,  # or &quot;evomi&quot;
+    jar_type=&quot;random&quot;,                  # only &quot;random&quot; or &quot;roundrobin&quot; supported
 ) as tb:
     ...
 </code></pre>
@@ -680,30 +859,70 @@ async with toolbox(
 <tbody>
 <tr>
 <td><code>country_codes</code></td>
-<td>tuple[str | None]</td>
+<td>tuple[str, ...]</td>
 <td><code>()</code></td>
 <td>Filter proxies by ISO country code. Case-insensitive.</td>
 </tr>
 <tr>
 <td><code>storage_type</code></td>
-<td><code>"list" \| "queue"</code></td>
+<td><code>"list"</code> | <code>"queue"</code></td>
 <td><code>"list"</code></td>
-<td>Choose proxy storage implementation.</td>
+<td>Choose proxy storage implementation. Rotating services only support <code>"list"</code>.</td>
 </tr>
 <tr>
 <td><code>jar_type</code></td>
-<td><code>"random" \| "roundrobin" \| "exhausting"</code></td>
-<td><code>"random"</code></td>
-<td>Strategy for selecting proxies. <code>exhausting</code> pairs with <code>"queue"</code>.</td>
+<td><code>"random"</code> | <code>"roundrobin"</code> | <code>"exhausting"</code></td>
+<td><code>"roundrobin"</code></td>
+<td>Strategy for selecting proxies. <code>"exhausting"</code> requires <code>"queue"</code> storage and <code>"webshare"</code> service.</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>"webshare"</code> | <code>"evomi"</code> | <code>"webshare_high_rotating"</code></td>
+<td><code>"webshare"</code></td>
+<td>Proxy service provider. <code>"webshare"</code> provides datacenter proxies with full features. <code>"evomi"</code> and <code>"webshare_high_rotating"</code> provide residential rotating proxies with limited feature support.</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="service-specific-limitations">Service-specific limitations</h2>
+<h3 id="webshare-datacenter">Webshare (datacenter)</h3>
+<ul>
+<li>✅ All storage types supported</li>
+<li>✅ All jar types supported</li>
+<li>✅ Full feature set</li>
+</ul>
+<h3 id="evomi-webshare-high-rotating-residential">Evomi &amp; Webshare High Rotating (residential)</h3>
+<ul>
+<li>✅ Only <code>ListProxyStorage</code> supported</li>
+<li>✅ Only <code>RandomProxyJar</code> and <code>RoundRobinProxyJar</code> supported</li>
+<li>❌ <code>QueueProxyStorage</code> not supported</li>
+<li>❌ <code>ExhaustingProxyJar</code> not supported</li>
+</ul>
+<p>Attempting to use unsupported combinations will raise a <code>ValueError</code>:</p>
+<pre><code class="language-python"># This will raise ValueError
+async with toolbox(
+    service=&quot;evomi&quot;,
+    storage_type=&quot;queue&quot;  # Not supported for residential services
+):
+    ...
+
+# This will also raise ValueError
+async with toolbox(
+    service=&quot;webshare_high_rotating&quot;,
+    jar_type=&quot;exhausting&quot;  # Not supported for residential services
+):
+    ...
+</code></pre>
 <hr />
 <h2 id="faq">FAQ</h2>
 <p><strong>Q: What happens if proxy polling fails temporarily?</strong><br />
 A: Existing proxies remain usable; the next successful poll will refresh the pool.</p>
 <p><strong>Q: Can I mix multiple country codes?</strong><br />
 A: Yes. Example: <code>country_codes=("DE", "US")</code>.</p>
+<p><strong>Q: When should I use residential proxies vs datacenter proxies?</strong><br />
+A: Residential proxies (<code>evomi</code>, <code>webshare_high_rotating</code>) are better for sites with strict anti-bot protection, while datacenter proxies (<code>webshare</code>) offer more features and flexibility for general scraping tasks.</p>
+<p><strong>Q: Why can't I use ExhaustingProxyJar with residential services?</strong><br />
+A: Residential rotating proxies already rotate automatically at the provider level, so there are no option to "bake" some proxy in jar and use it</p>
 <hr />
 <h2 id="minimal-example-without-context-manager">Minimal example without context manager</h2>
 <p>If you want full control over lifecycle, you can instantiate and close components yourself (advanced):</p>

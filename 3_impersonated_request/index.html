@@ -310,6 +310,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#request-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Statistics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-successfailure-is-counted" class="md-nav__link">
+    <span class="md-ellipsis">
+      How success/failure is counted
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#own-realisation" class="md-nav__link">
     <span class="md-ellipsis">
       Own Realisation
@@ -428,6 +452,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#request-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Statistics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-successfailure-is-counted" class="md-nav__link">
+    <span class="md-ellipsis">
+      How success/failure is counted
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#own-realisation" class="md-nav__link">
     <span class="md-ellipsis">
       Own Realisation
@@ -477,6 +525,52 @@ async def request(kwargs):
 <p>So we can setup behavior:
 * retries per url
 * retries per proxy</p>
+<h2 id="request-statistics">Request Statistics</h2>
+<p>The <code>ImpersonatedRequest</code> class now tracks request statistics automatically:</p>
+<ul>
+<li><strong><code>success_count</code></strong> — number of successful requests (HTTP 2xx/3xx that passed all checkers without failure actions)</li>
+<li><strong><code>failure_count</code></strong> — number of failed attempts (exceptions or checker failures)</li>
+<li><strong><code>total_count</code></strong> — total number of request attempts</li>
+<li><strong><code>bussines_failure_count</code></strong> — number of URLs that exhausted all retries (raised <code>TooMuchRetries</code>)</li>
+</ul>
+<pre><code class="language-python">from unified_scraping import request
+
+# Make some requests
+await request(&quot;https://example.com&quot;, &quot;GET&quot;, enable_proxy=False)
+await request(&quot;https://example.com&quot;, &quot;GET&quot;, enable_proxy=False)
+
+# Check statistics
+print(f&quot;Success: {request.success_count}&quot;)
+print(f&quot;Failures: {request.failure_count}&quot;)
+print(f&quot;Total attempts: {request.total_count}&quot;)
+print(f&quot;Business failures: {request.bussines_failure_count}&quot;)
+</code></pre>
+<p>These counters are useful for monitoring scraping health and debugging retry patterns.</p>
+<h3 id="how-successfailure-is-counted">How success/failure is counted</h3>
+<p>The success/failure counting is determined by <strong>response checkers</strong>:</p>
+<ul>
+<li><strong>Success</strong> is counted when the request succeeds AND all response checkers either return <code>False</code> or have <code>on_check="continue"</code></li>
+<li><strong>Failure</strong> is counted when at least one response checker returns <code>True</code> with <code>on_check</code> set to <code>"retry"</code>, <code>"change_proxy"</code>, or <code>"drop"</code></li>
+</ul>
+<p><strong>Important:</strong> Multiple checkers with failure actions (<code>retry</code>, <code>change_proxy</code>, <code>drop</code>) will only increment the failure counter <strong>once per request</strong>, not once per checker. This means it's safe to use multiple checkers without inflating your failure statistics.</p>
+<pre><code class="language-python">@request.response_checker(on_check=&quot;retry&quot;)
+async def check_captcha(resp):
+    return &quot;captcha&quot; in resp.text
+
+@request.response_checker(on_check=&quot;retry&quot;)
+async def check_rate_limit(resp):
+    return resp.status_code == 429
+
+@request.response_checker(on_check=&quot;change_proxy&quot;)
+async def check_blocked(resp):
+    return &quot;blocked&quot; in resp.text
+
+# If request triggers check_captcha=True and check_blocked=True:
+# - failure_count increases by 1 (not 2!)
+# - The action with highest priority (change_proxy) is executed
+</code></pre>
+<p>Exception-based failures (network errors, timeouts, HTTP errors) also increment <code>failure_count</code> once per attempt.</p>
+<hr />
 <h2 id="own-realisation">Own Realisation</h2>
 <p>If you want more control for request you can import class
 <code>from unified_scraping import ImpersonatedRequest</code>
